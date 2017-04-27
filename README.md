@@ -28,7 +28,9 @@ $ cd lab8
 
 ```bash
 $ sed '/project(print)/a set(PRINT_VERSION_STRING "v${PRINT_VERSION}")'  CMakeLists.txt
-$ sed '/project(print)/a set(PRINT_VERSION ${PRINT_VERSION_MAJOR}.${PRINT_VERSION_MINOR}.${PRINT_VERSION_PATCH}.${PRINT_VERSION_TWEAK})'  CMakeLists.txt
+$ sed '/project(print)/a set(PRINT_VERSION \
+${PRINT_VERSION_MAJOR}.${PRINT_VERSION_MINOR}.${PRINT_VERSION_PATCH}.${PRINT_VERSION_TWEAK})' \ 
+CMakeLists.txt
 $ sed '/project(print)/a set(PRINT_TWEAK_VERSION 0)' CMakeLists.txt
 $ sed '/project(print)/a set(PRINT_PATCH_VERSION 0)' CMakeLists.txt
 $ sed '/project(print)/a set(PRINT_MINOR_VERSION 1)' CMakeLists.txt
