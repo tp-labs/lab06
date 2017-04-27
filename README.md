@@ -106,17 +106,16 @@ $ mv _build/*.tgz artifacts
 ```
 
 ```bash
-$ git add .
-$ git commit -m"added cpack config"
-$ git push origin master
-```
-
-```bash
 $ cat >> CPackConfig.cmake <<EOF
 include(CPack)
 EOF
 ```
 
+```bash
+$ git add .
+$ git commit -m"added cpack config"
+$ git push origin master
+```
 ## Links
 
 - [DMG](https://cmake.org/cmake/help/latest/module/CPackDMG.html)
