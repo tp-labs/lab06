@@ -21,21 +21,31 @@ $ export GITHUB_EMAIL=<адрес_почтового_ящика>
 
 ```bash
 $ git clone https://github.com/${GITHUB_USERNAME}/lab7 lab8
+$ cd lab8
 $ git remote remove origin
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab8
-$ cd lab8
 ```
 
 ```bash
-$ sed '/project(print)/a set(PRINT_VERSION_STRING "v${PRINT_VERSION}")'  CMakeLists.txt
-$ sed '/project(print)/a set(PRINT_VERSION \
-${PRINT_VERSION_MAJOR}.${PRINT_VERSION_MINOR}.${PRINT_VERSION_PATCH}.${PRINT_VERSION_TWEAK})' \ 
-CMakeLists.txt
-$ sed '/project(print)/a set(PRINT_TWEAK_VERSION 0)' CMakeLists.txt
-$ sed '/project(print)/a set(PRINT_PATCH_VERSION 0)' CMakeLists.txt
-$ sed '/project(print)/a set(PRINT_MINOR_VERSION 1)' CMakeLists.txt
-$ sed '/project(print)/a set(PRINT_MAJOR_VERSION 1)' CMakeLists.txt
-$ sed '/project(print)/a )' CMakeLists.txt
+$ sed -i '' '/project(print)/a\
+set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
+' CMakeLists.txt
+$ sed -i '' '/project(print)/a\
+set(PRINT_VERSION \
+\${PRINT_VERSION_MAJOR}.\${PRINT_VERSION_MINOR}.\${PRINT_VERSION_PATCH}.\${PRINT_VERSION_TWEAK})
+' CMakeLists.txt
+$ sed -i '' '/project(print)/a\
+set(PRINT_VERSION_TWEAK 0)
+' CMakeLists.txt
+$ sed -i '' '/project(print)/a\
+set(PRINT_VERSION_PATCH 0)
+' CMakeLists.txt
+$ sed -i '' '/project(print)/a\ 
+set(PRINT_VERSION_MINOR 1)
+' CMakeLists.txt
+$ sed -i '' '/project(print)/a\ 
+set(PRINT_VERSION_MAJOR 0)
+' CMakeLists.txt
 ```
 
 ```bash
@@ -50,44 +60,70 @@ EOF
 ```bash
 $ cat > CPackConfig.cmake <<EOF
 include(InstallRequiredSystemLibraries)
+EOF
 ```
 
 ```bash
 $ cat >> CPackConfig.cmake <<EOF
 set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
-set(CPACK_PACKAGE_VERSION_MAJOR ${PRINT_VERSION_MAJOR})
-set(CPACK_PACKAGE_VERSION_MINOR ${PRINT_VERSION_MINOR})
-set(CPACK_PACKAGE_VERSION_PATCH ${PRINT_VERSION_PATCH})
-set(CPACK_PACKAGE_VERSION_TWEAK ${PRINT_VERSION_TWEAK)
-set(CPACK_PACKAGE_VERSION ${PRINT_VERSION})
-set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/DESCRIPTION)
+set(CPACK_PACKAGE_VERSION_MAJOR \${PRINT_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR \${PRINT_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH \${PRINT_VERSION_PATCH})
+set(CPACK_PACKAGE_VERSION_TWEAK \${PRINT_VERSION_TWEAK})
+set(CPACK_PACKAGE_VERSION \${PRINT_VERSION})
+set(CPACK_PACKAGE_DESCRIPTION_FILE \${CMAKE_CURRENT_SOURCE_DIR}/DESCRIPTION)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "static c++ library for printing")
 EOF
 ```
 
 ```bash
 $ cat >> CPackConfig.cmake <<EOF
-set(CPACK_RESOURCE_FILE_LICENSE ${CMAKE_CURRENT_SOURCE_DIR}/LICENSE)
-set(CPACK_RESOURCE_FILE_README ${CMAKE_CURRENT_SOURCE_DIR}/README.md)
+
+set(CPACK_RESOURCE_FILE_LICENSE \${CMAKE_CURRENT_SOURCE_DIR}/LICENSE)
+set(CPACK_RESOURCE_FILE_README \${CMAKE_CURRENT_SOURCE_DIR}/README.md)
 EOF
 ```
 
 ```bash
 $ cat >> CPackConfig.cmake <<EOF
-set(CPACK_RPM_PACKAGE_NAME "PRINT-devel")
+
+set(CPACK_RPM_PACKAGE_NAME "print-devel")
 set(CPACK_RPM_PACKAGE_LICENSE "MIT")
-set(CPACK_RPM_PACKAGE_GROUP "PRINT")
+set(CPACK_RPM_PACKAGE_GROUP "print")
 set(CPACK_RPM_PACKAGE_URL "https://github.com/${GITHUB_USERNAME}/lab7")
-set(CPACK_RPM_CHANGELOG_FILE ${CMAKE_CURRENT_SOURCE_DIR}/ChangeLog.md)
+set(CPACK_RPM_CHANGELOG_FILE \${CMAKE_CURRENT_SOURCE_DIR}/ChangeLog.md)
 set(CPACK_RPM_PACKAGE_RELEASE 1)
+EOF
 ```
 
 ```bash
 $ cat >> CPackConfig.cmake <<EOF
+
 set(CPACK_DEBIAN_PACKAGE_NAME "libprint-dev")
 set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://${GITHUB_USERNAME}.github.io/lab7")
 set(CPACK_DEBIAN_PACKAGE_PREDEPENDS "cmake >= 3.0")
 set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
+EOF
+```
+
+```bash
+$ cat >> CPackConfig.cmake <<EOF
+
+include(CPack)
+EOF
+```
+
+```bash
+$ cat >> CMakeLists.txt <<EOF
+
+include(CPackConfig.cmake)
+EOF 
+```
+
+```bash
+$ git add .
+$ git commit -m"added cpack config"
+$ git push origin master
 ```
 
 ```bash
@@ -104,20 +140,9 @@ $ cd ..
 
 ```bash
 $ mkdir artifacts
-$ mv _build/*.tgz artifacts
+$ mv _build/*.tar.gz artifacts
 ```
 
-```bash
-$ cat >> CPackConfig.cmake <<EOF
-include(CPack)
-EOF
-```
-
-```bash
-$ git add .
-$ git commit -m"added cpack config"
-$ git push origin master
-```
 ## Links
 
 - [DMG](https://cmake.org/cmake/help/latest/module/CPackDMG.html)
