@@ -139,6 +139,11 @@ $ cd ..
 ```
 
 ```bash
+$ cmake -H. -B_build -DCPACK_GENERATOR="TGZ"
+$ cmake --build _build --target package
+```
+
+```bash
 $ mkdir artifacts
 $ mv _build/*.tar.gz artifacts
 ```
