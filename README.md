@@ -132,6 +132,11 @@ $ git push origin master
 ```
 
 ```bash
+$ travis login --auto
+$ travis enable
+```
+
+```bash
 $ cmake -H. -B_build
 $ cmake --build _build
 $ cd _build
