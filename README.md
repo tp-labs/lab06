@@ -11,6 +11,7 @@ $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 - [ ] 1. Создать публичный репозиторий с названием **lab8** на сервисе **GitHub**
 - [ ] 2. Выполнить инструкцию учебного материала
 - [ ] 3. Ознакомиться со ссылками учебного материала
+- [ ] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
 
 ## Tutorial
 
@@ -121,6 +122,10 @@ EOF
 ```
 
 ```bash
+$ sed -i '' 's/lab7/lab8/' README.md
+```
+
+```bash
 $ git add .
 $ git commit -m"added cpack config"
 $ git push origin master
@@ -154,3 +159,7 @@ $ mv _build/*.tar.gz artifacts
 - [DEB](https://cmake.org/cmake/help/latest/module/CPackDeb.html)
 - [RPM](https://cmake.org/cmake/help/latest/module/CPackRPM.html)
 - [NSIS](https://cmake.org/cmake/help/latest/module/CPackNSIS.html)
+
+```
+Copyright (c) 2017 Vyacheslav Vershinin
+```
