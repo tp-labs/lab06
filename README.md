@@ -122,7 +122,7 @@ EOF
 ```
 
 ```bash
-$ sed -i '' 's/lab7/lab8/' README.md
+$ sed -i '' 's/lab7/lab8/g' README.md
 ```
 
 ```bash
