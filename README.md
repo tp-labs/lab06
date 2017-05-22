@@ -181,5 +181,5 @@ $ gistup -m"lab${LAB_NUMBER}"
 - [NSIS](https://cmake.org/cmake/help/latest/module/CPackNSIS.html)
 
 ```
-Copyright (c) 2017 Vyacheslav Vershinin
+Copyright (c) 2017 Братья Вершинины
 ```
