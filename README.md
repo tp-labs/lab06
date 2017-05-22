@@ -18,6 +18,7 @@ $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 ```bash
 $ export GITHUB_USERNAME=<имя_пользователя>
 $ export GITHUB_EMAIL=<адрес_почтового_ящика>
+$ alias edit=<nano|vi|vim|subl>
 ```
 
 ```bash
@@ -50,7 +51,7 @@ set(PRINT_VERSION_MAJOR 0)
 ```
 
 ```bash
-$ touch DESCRIPTION && nano DESCRIPTION
+$ touch DESCRIPTION && edit DESCRIPTION
 $ touch ChangeLog.md
 $ DATE=`date` cat > ChangeLog.md <<EOF
 * ${DATE} ${GITHUB_USERNAME} <${GITHUB_EMAIL}> 0.1.0.0
