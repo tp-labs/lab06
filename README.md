@@ -2,7 +2,7 @@
 
 Данная лабораторная работа посвещена изучению средств пакетирования на примере **CPack**
 
-```bash
+```ShellSession
 $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 ```
 
@@ -15,20 +15,20 @@ $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 
 ## Tutorial
 
-```bash
+```ShellSession
 $ export GITHUB_USERNAME=<имя_пользователя>
 $ export GITHUB_EMAIL=<адрес_почтового_ящика>
 $ alias edit=<nano|vi|vim|subl>
 ```
 
-```bash
+```ShellSession
 $ git clone https://github.com/${GITHUB_USERNAME}/lab07 lab08
 $ cd lab08
 $ git remote remove origin
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab08
 ```
 
-```bash
+```ShellSession
 $ sed -i '' '/project(print)/a\
 set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
 ' CMakeLists.txt
@@ -50,7 +50,7 @@ set(PRINT_VERSION_MAJOR 0)
 ' CMakeLists.txt
 ```
 
-```bash
+```ShellSession
 $ touch DESCRIPTION && edit DESCRIPTION
 $ touch ChangeLog.md
 $ DATE=`date` cat > ChangeLog.md <<EOF
@@ -59,13 +59,13 @@ $ DATE=`date` cat > ChangeLog.md <<EOF
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat > CPackConfig.cmake <<EOF
 include(InstallRequiredSystemLibraries)
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat >> CPackConfig.cmake <<EOF
 set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
 set(CPACK_PACKAGE_VERSION_MAJOR \${PRINT_VERSION_MAJOR})
@@ -78,7 +78,7 @@ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "static c++ library for printing")
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_RESOURCE_FILE_LICENSE \${CMAKE_CURRENT_SOURCE_DIR}/LICENSE)
@@ -86,7 +86,7 @@ set(CPACK_RESOURCE_FILE_README \${CMAKE_CURRENT_SOURCE_DIR}/README.md)
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_RPM_PACKAGE_NAME "print-devel")
@@ -98,7 +98,7 @@ set(CPACK_RPM_PACKAGE_RELEASE 1)
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_DEBIAN_PACKAGE_NAME "libprint-dev")
@@ -108,36 +108,36 @@ set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat >> CPackConfig.cmake <<EOF
 
 include(CPack)
 EOF
 ```
 
-```bash
+```ShellSession
 $ cat >> CMakeLists.txt <<EOF
 
 include(CPackConfig.cmake)
 EOF 
 ```
 
-```bash
+```ShellSession
 $ sed -i '' 's/lab07/lab08/g' README.md
 ```
 
-```bash
+```ShellSession
 $ git add .
 $ git commit -m"added cpack config"
 $ git push origin master
 ```
 
-```bash
+```ShellSession
 $ travis login --auto
 $ travis enable
 ```
 
-```bash
+```ShellSession
 $ cmake -H. -B_build
 $ cmake --build _build
 $ cd _build
@@ -149,12 +149,12 @@ $ cpack -G "DragNDrop"
 $ cd ..
 ```
 
-```bash
+```ShellSession
 $ cmake -H. -B_build -DCPACK_GENERATOR="TGZ"
 $ cmake --build _build --target package
 ```
 
-```bash
+```ShellSession
 $ mkdir artifacts
 $ mv _build/*.tar.gz artifacts
 $ tree artifacts
@@ -162,7 +162,7 @@ $ tree artifacts
 
 ## Report
 
-```bash
+```ShellSession
 $ cd ~/workspace/labs/
 $ export LAB_NUMBER=08
 $ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
