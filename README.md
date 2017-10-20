@@ -19,6 +19,7 @@ $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 $ export GITHUB_USERNAME=<имя_пользователя>
 $ export GITHUB_EMAIL=<адрес_почтового_ящика>
 $ alias edit=<nano|vi|vim|subl>
+$ alias gsed=sed # for *-nix system
 ```
 
 ```ShellSession
@@ -29,23 +30,23 @@ $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab08
 ```
 
 ```ShellSession
-$ sed -i '' '/project(print)/a\
+$ gsed -i '/project(print)/a\
 set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
 ' CMakeLists.txt
-$ sed -i '' '/project(print)/a\
+$ gsed -i '/project(print)/a\
 set(PRINT_VERSION \
 \${PRINT_VERSION_MAJOR}.\${PRINT_VERSION_MINOR}.\${PRINT_VERSION_PATCH}.\${PRINT_VERSION_TWEAK})
 ' CMakeLists.txt
-$ sed -i '' '/project(print)/a\
+$ gsed -i '/project(print)/a\
 set(PRINT_VERSION_TWEAK 0)
 ' CMakeLists.txt
-$ sed -i '' '/project(print)/a\
+$ gsed -i '/project(print)/a\
 set(PRINT_VERSION_PATCH 0)
 ' CMakeLists.txt
-$ sed -i '' '/project(print)/a\ 
+$ gsed -i '/project(print)/a\ 
 set(PRINT_VERSION_MINOR 1)
 ' CMakeLists.txt
-$ sed -i '' '/project(print)/a\ 
+$ gsed -i '/project(print)/a\ 
 set(PRINT_VERSION_MAJOR 0)
 ' CMakeLists.txt
 ```
@@ -123,7 +124,7 @@ EOF
 ```
 
 ```ShellSession
-$ sed -i '' 's/lab07/lab08/g' README.md
+$ gsed -i 's/lab07/lab08/g' README.md
 ```
 
 ```ShellSession
