@@ -54,7 +54,7 @@ set(PRINT_VERSION_MAJOR 0)
 ```ShellSession
 $ touch DESCRIPTION && edit DESCRIPTION
 $ touch ChangeLog.md
-$ DATE=`date` cat > ChangeLog.md <<EOF
+$ DATE=`date +"%a %b %d %Y"` cat > ChangeLog.md <<EOF
 * ${DATE} ${GITHUB_USERNAME} <${GITHUB_EMAIL}> 0.1.0.0
 - Initial RPM release
 EOF
@@ -120,7 +120,7 @@ EOF
 $ cat >> CMakeLists.txt <<EOF
 
 include(CPackConfig.cmake)
-EOF 
+EOF
 ```
 
 ```ShellSession
