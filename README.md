@@ -23,8 +23,14 @@ $ alias gsed=sed # for *-nix system
 ```
 
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab07 lab08
-$ cd lab08
+$ cd ${GITHUB_USERNAME}/workspace
+$ pushd .
+$ source scripts/activate
+```
+
+```ShellSession
+$ git clone https://github.com/${GITHUB_USERNAME}/lab07 projects/lab08
+$ cd projects/lab08
 $ git remote remove origin
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab08
 ```
@@ -43,10 +49,10 @@ set(PRINT_VERSION_TWEAK 0)
 $ gsed -i '/project(print)/a\
 set(PRINT_VERSION_PATCH 0)
 ' CMakeLists.txt
-$ gsed -i '/project(print)/a\ 
+$ gsed -i '/project(print)/a\
 set(PRINT_VERSION_MINOR 1)
 ' CMakeLists.txt
-$ gsed -i '/project(print)/a\ 
+$ gsed -i '/project(print)/a\
 set(PRINT_VERSION_MAJOR 0)
 ' CMakeLists.txt
 ```
@@ -54,7 +60,8 @@ set(PRINT_VERSION_MAJOR 0)
 ```ShellSession
 $ touch DESCRIPTION && edit DESCRIPTION
 $ touch ChangeLog.md
-$ DATE=`date +"%a %b %d %Y"` cat > ChangeLog.md <<EOF
+$ export DATE=`date +"%a %b %d %Y"`
+$ cat > ChangeLog.md <<EOF
 * ${DATE} ${GITHUB_USERNAME} <${GITHUB_EMAIL}> 0.1.0.0
 - Initial RPM release
 EOF
@@ -164,7 +171,7 @@ $ tree artifacts
 ## Report
 
 ```ShellSession
-$ cd ~/workspace/labs/
+$ popd
 $ export LAB_NUMBER=08
 $ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
 $ mkdir reports/lab${LAB_NUMBER}
