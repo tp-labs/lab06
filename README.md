@@ -55,6 +55,7 @@ set(PRINT_VERSION_MINOR 1)
 $ gsed -i '/project(print)/a\
 set(PRINT_VERSION_MAJOR 0)
 ' CMakeLists.txt
+$ git diff
 ```
 
 ```ShellSession
