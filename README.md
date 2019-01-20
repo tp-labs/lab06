@@ -135,7 +135,8 @@ $ gsed -i 's/lab05/lab06/g' README.md
 ```ShellSession
 $ git add .
 $ git commit -m"added cpack config"
-$ git push origin master
+$ git tag v0.1.0.0
+$ git push origin master --tags
 ```
 
 ```ShellSession
