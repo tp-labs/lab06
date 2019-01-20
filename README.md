@@ -1,4 +1,4 @@
-## Laboratory work VIII
+## Laboratory work VI
 
 Данная лабораторная работа посвещена изучению средств пакетирования на примере **CPack**
 
@@ -8,7 +8,7 @@ $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 
 ## Tasks
 
-- [ ] 1. Создать публичный репозиторий с названием **lab08** на сервисе **GitHub**
+- [ ] 1. Создать публичный репозиторий с названием **lab06** на сервисе **GitHub**
 - [ ] 2. Выполнить инструкцию учебного материала
 - [ ] 3. Ознакомиться со ссылками учебного материала
 - [ ] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
@@ -29,10 +29,10 @@ $ source scripts/activate
 ```
 
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab07 projects/lab08
-$ cd projects/lab08
+$ git clone https://github.com/${GITHUB_USERNAME}/lab05 projects/lab06
+$ cd projects/lab06
 $ git remote remove origin
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab08
+$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06
 ```
 
 ```ShellSession
@@ -100,7 +100,6 @@ $ cat >> CPackConfig.cmake <<EOF
 set(CPACK_RPM_PACKAGE_NAME "print-devel")
 set(CPACK_RPM_PACKAGE_LICENSE "MIT")
 set(CPACK_RPM_PACKAGE_GROUP "print")
-set(CPACK_RPM_PACKAGE_URL "https://github.com/${GITHUB_USERNAME}/lab07")
 set(CPACK_RPM_CHANGELOG_FILE \${CMAKE_CURRENT_SOURCE_DIR}/ChangeLog.md)
 set(CPACK_RPM_PACKAGE_RELEASE 1)
 EOF
@@ -110,7 +109,6 @@ EOF
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_DEBIAN_PACKAGE_NAME "libprint-dev")
-set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://${GITHUB_USERNAME}.github.io/lab07")
 set(CPACK_DEBIAN_PACKAGE_PREDEPENDS "cmake >= 3.0")
 set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
 EOF
@@ -131,7 +129,7 @@ EOF
 ```
 
 ```ShellSession
-$ gsed -i 's/lab07/lab08/g' README.md
+$ gsed -i 's/lab05/lab06/g' README.md
 ```
 
 ```ShellSession
@@ -172,7 +170,7 @@ $ tree artifacts
 
 ```ShellSession
 $ popd
-$ export LAB_NUMBER=08
+$ export LAB_NUMBER=06
 $ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
 $ mkdir reports/lab${LAB_NUMBER}
 $ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
