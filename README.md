@@ -150,10 +150,6 @@ $ cmake -H. -B_build
 $ cmake --build _build
 $ cd _build
 $ cpack -G "TGZ"
-$ cpack -G "RPM"
-$ cpack -G "DEB"
-$ cpack -G "NSIS"
-$ cpack -G "DragNDrop"
 $ cd ..
 ```
 
@@ -180,6 +176,17 @@ $ cd reports/lab${LAB_NUMBER}
 $ edit REPORT.md
 $ gistup -m "lab${LAB_NUMBER}"
 ```
+
+## Homework
+
+После того, как вы настроили взаимодействие с системой непрерывной интеграции,</br>
+обеспечив автоматическую сборку и тестирование ваших изменений, стоит задуматься</br>
+о создание пакетов для измениний, которые помечаются тэгами (см. вкладку [releases](https://github.com/tp-labs/lab06/releases)).</br>
+
+
+Для этого нужно добавить ветвление в конфигурационные файлы для **CI** со следующей логикой:</br>
+если **commit** помечен тэгом, то необходимо собрать пакеты (`DEB, RPM, WIX, DragNDrop, ...`) </br>
+и разместить их на сервисе **GitHub**. (см. пример для [Travi CI](https://docs.travis-ci.com/user/deployment/releases))</br>
 
 ## Links
 
