@@ -193,13 +193,13 @@ $ cat .travis.yml
 os: osx
 script:
 ...
-- cpack -G DragNDrop
+- cpack -G DragNDrop # dmg
 
 $ cat .travis.yml
 os: linux
 script:
 ...
-- cpack -G DEB
+- cpack -G DEB # deb
 
 $ cat .travis.yml
 os: linux
@@ -209,7 +209,7 @@ addons:
     - rpm
 script:
 ...
-- cpack -G RPM
+- cpack -G RPM # rpm
 
 $ cat appveyor.yml
 platform:
@@ -217,7 +217,7 @@ platform:
 - x64
 build_script:
 ...
-- cpack -G WIX
+- cpack -G WIX # msi
 ```
 
 Для этого нужно добавить ветвление в конфигурационные файлы для **CI** со следующей логикой:</br>
