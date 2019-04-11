@@ -183,6 +183,42 @@ $ gistup -m "lab${LAB_NUMBER}"
 обеспечив автоматическую сборку и тестирование ваших изменений, стоит задуматься</br>
 о создание пакетов для измениний, которые помечаются тэгами (см. вкладку [releases](https://github.com/tp-labs/lab06/releases)).</br>
 Пакет должен содержать приложение _solver_ из [предыдущего задания](https://github.com/tp-labs/lab03#задание-1)
+Таким образом, каждый новый релиз будет состоять из следующих компонентов:
+- архивы с файлами исходного кода (`.tar.gz`, `.zip`)
+- пакеты с бинарный файлом _solver_ (`.deb`, `.rpm`, `.msi`, `.dmg`)
+
+В качестве подсказки:
+```
+$ cat .travis.yml
+os: osx
+script:
+...
+- cpack -G DragNDrop
+
+$ cat .travis.yml
+os: linux
+script:
+...
+- cpack -G DEB
+
+$ cat .travis.yml
+os: linux
+addons:
+  apt:
+    packages:
+    - rpm
+script:
+...
+- cpack -G RPM
+
+$ cat appveyor.yml
+platform:
+- x86
+- x64
+build_script:
+...
+- cpack -G WIX
+```
 
 Для этого нужно добавить ветвление в конфигурационные файлы для **CI** со следующей логикой:</br>
 если **commit** помечен тэгом, то необходимо собрать пакеты (`DEB, RPM, WIX, DragNDrop, ...`) </br>
