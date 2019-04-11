@@ -188,7 +188,7 @@ $ gistup -m "lab${LAB_NUMBER}"
 - пакеты с бинарным файлом _solver_ (`.deb`, `.rpm`, `.msi`, `.dmg`)
 
 В качестве подсказки:
-```
+```bash
 $ cat .travis.yml
 os: osx
 script:
