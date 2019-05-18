@@ -37,7 +37,7 @@ $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06
 
 ```ShellSession
 $ gsed -i '/project(print)/a\
-set(PRINT_VERSION_STRING "v${PRINT_VERSION}")
+set(PRINT_VERSION_STRING "v\${PRINT_VERSION}")
 ' CMakeLists.txt
 $ gsed -i '/project(print)/a\
 set(PRINT_VERSION\
