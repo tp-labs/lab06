@@ -15,27 +15,27 @@ $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 
 ## Tutorial
 
-```ShellSession
+```sh
 $ export GITHUB_USERNAME=<имя_пользователя>
 $ export GITHUB_EMAIL=<адрес_почтового_ящика>
 $ alias edit=<nano|vi|vim|subl>
 $ alias gsed=sed # for *-nix system
 ```
 
-```ShellSession
+```sh
 $ cd ${GITHUB_USERNAME}/workspace
 $ pushd .
 $ source scripts/activate
 ```
 
-```ShellSession
+```sh
 $ git clone https://github.com/${GITHUB_USERNAME}/lab05 projects/lab06
 $ cd projects/lab06
 $ git remote remove origin
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06
 ```
 
-```ShellSession
+```sh
 $ gsed -i '/project(print)/a\
 set(PRINT_VERSION_STRING "v\${PRINT_VERSION}")
 ' CMakeLists.txt
@@ -58,7 +58,7 @@ set(PRINT_VERSION_MAJOR 0)
 $ git diff
 ```
 
-```ShellSession
+```sh
 $ touch DESCRIPTION && edit DESCRIPTION
 $ touch ChangeLog.md
 $ export DATE="`LANG=en_US date +'%a %b %d %Y'`"
@@ -68,13 +68,13 @@ $ cat > ChangeLog.md <<EOF
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat > CPackConfig.cmake <<EOF
 include(InstallRequiredSystemLibraries)
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat >> CPackConfig.cmake <<EOF
 set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
 set(CPACK_PACKAGE_VERSION_MAJOR \${PRINT_VERSION_MAJOR})
@@ -87,7 +87,7 @@ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "static C++ library for printing")
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_RESOURCE_FILE_LICENSE \${CMAKE_CURRENT_SOURCE_DIR}/LICENSE)
@@ -95,7 +95,7 @@ set(CPACK_RESOURCE_FILE_README \${CMAKE_CURRENT_SOURCE_DIR}/README.md)
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_RPM_PACKAGE_NAME "print-devel")
@@ -106,7 +106,7 @@ set(CPACK_RPM_PACKAGE_RELEASE 1)
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_DEBIAN_PACKAGE_NAME "libprint-dev")
@@ -115,37 +115,37 @@ set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat >> CPackConfig.cmake <<EOF
 
 include(CPack)
 EOF
 ```
 
-```ShellSession
+```sh
 $ cat >> CMakeLists.txt <<EOF
 
 include(CPackConfig.cmake)
 EOF
 ```
 
-```ShellSession
+```sh
 $ gsed -i 's/lab05/lab06/g' README.md
 ```
 
-```ShellSession
+```sh
 $ git add .
 $ git commit -m"added cpack config"
 $ git tag v0.1.0.0
 $ git push origin master --tags
 ```
 
-```ShellSession
+```sh
 $ travis login --auto
 $ travis enable
 ```
 
-```ShellSession
+```sh
 $ cmake -H. -B_build
 $ cmake --build _build
 $ cd _build
@@ -153,12 +153,12 @@ $ cpack -G "TGZ"
 $ cd ..
 ```
 
-```ShellSession
+```sh
 $ cmake -H. -B_build -DCPACK_GENERATOR="TGZ"
 $ cmake --build _build --target package
 ```
 
-```ShellSession
+```sh
 $ mkdir artifacts
 $ mv _build/*.tar.gz artifacts
 $ tree artifacts
@@ -166,7 +166,7 @@ $ tree artifacts
 
 ## Report
 
-```ShellSession
+```sh
 $ popd
 $ export LAB_NUMBER=06
 $ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
@@ -188,7 +188,7 @@ $ gist REPORT.md
 - пакеты с бинарным файлом _solver_ (`.deb`, `.rpm`, `.msi`, `.dmg`)
 
 В качестве подсказки:
-```bash
+```sh
 $ cat .travis.yml
 os: osx
 script:
@@ -232,5 +232,5 @@ build_script:
 - [NSIS](https://cmake.org/cmake/help/latest/module/CPackNSIS.html)
 
 ```
-Copyright (c) 2015-2019 The ISC Authors
+Copyright (c) 2015-2020 The ISC Authors
 ```
