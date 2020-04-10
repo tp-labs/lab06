@@ -1,10 +1,10 @@
 ## Laboratory work VI
 
-[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/tp-labs/lab06/master/preview.png)](https://yandex.ru/efir/?stream_id=vGWlFO3of-Rg)
+<a href="https://yandex.ru/efir/?stream_id=vGWlFO3of-Rg"><img src="https://raw.githubusercontent.com/tp-labs/lab06/master/preview.png" width="640"/></a>
 
 Данная лабораторная работа посвещена изучению средств пакетирования на примере **CPack**
 
-```ShellSession
+```sh
 $ open https://cmake.org/Wiki/CMake:CPackPackageGenerators
 ```
 
