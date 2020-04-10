@@ -1,5 +1,7 @@
 ## Laboratory work VI
 
+[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/tp-labs/lab06/master/preview.png)](https://yandex.ru/efir/?stream_id=vGWlFO3of-Rg)
+
 Данная лабораторная работа посвещена изучению средств пакетирования на примере **CPack**
 
 ```ShellSession
