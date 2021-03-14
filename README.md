@@ -1,7 +1,5 @@
 ## Laboratory work VI
 
-<a href="https://yandex.ru/efir/?stream_id=vGWlFO3of-Rg"><img src="https://raw.githubusercontent.com/tp-labs/lab06/master/preview.png" width="640"/></a>
-
 Данная лабораторная работа посвещена изучению средств пакетирования на примере **CPack**
 
 ```sh
@@ -234,5 +232,5 @@ build_script:
 - [NSIS](https://cmake.org/cmake/help/latest/module/CPackNSIS.html)
 
 ```
-Copyright (c) 2015-2020 The ISC Authors
+Copyright (c) 2015-2021 The ISC Authors
 ```
