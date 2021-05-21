@@ -110,7 +110,7 @@ EOF
 $ cat >> CPackConfig.cmake <<EOF
 
 set(CPACK_DEBIAN_PACKAGE_NAME "libprint-dev")
-set(CPACK_DEBIAN_PACKAGE_PREDEPENDS "cmake >= 3.0")
+set(CPACK_DEBIAN_PACKAGE_PREDEPENDS "cmake (>= 3.0)")
 set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
 EOF
 ```
