@@ -2,7 +2,7 @@
 include(InstallRequiredSystemLibraries)
 
 #Задаём кучу переменных
-set(CPACK_PACKAGE_CONTACT sodium.acetate.82@gmail.com)
+set(CPACK_PACKAGE_CONTACT xeniacuzmina@yandex.ru)
 set(CPACK_PACKAGE_VERSION ${PRINT_VERSION})
 set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/DESCRIPTION)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "C++ app for solving quadratic equations")
@@ -23,7 +23,7 @@ set(CPACK_DEBIAN_PACKAGE_NAME "solverapp-dev")
 set(CPACK_DEBIAN_FILE_NAME "solver-${PRINT_VERSION}.deb")
 set(CPACK_DEBIAN_PACKAGE_VERSION ${PRINT_VERSION})
 set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "all")
-set(CPACK_DEBIAN_PACKAGE_MAINTAINER "SodAcetate")
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "yourfavoriteself")
 #set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Solves quadratic equations")
 set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
 
