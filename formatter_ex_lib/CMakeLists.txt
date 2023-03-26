@@ -13,4 +13,4 @@ target_include_directories(formatter_ex_lib PUBLIC
 /../formatter_lib
 )
 
-target_link_libraries(formatter_ex_lib formatter_lib)
+target_link_libraries(formatter_ex_lib)
