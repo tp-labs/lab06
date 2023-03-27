@@ -30,4 +30,4 @@ jobs:
       uses: ncipollo/release-action@v1.10.0
       with:
         artifacts: "build/*.deb,build/*.tar.gz,build/*.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{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}}
