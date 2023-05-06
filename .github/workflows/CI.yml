@@ -1,0 +1,21 @@
+name: CMake
+
+on:
+ push:
+  branches: [master]
+ pull_request:
+  branches: [master]
+
+jobs: 
+ build_Linux:
+
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v3
+
+  - name: Configure Solver
+    run: cmake ${{github.workspace}} -B ${{github.workspace}}/build
+
+  - name: Build Solver
+    run: cmake --build ${{github.workspace}}/build

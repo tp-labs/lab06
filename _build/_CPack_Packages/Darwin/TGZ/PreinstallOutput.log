@@ -1,0 +1,16 @@
+# Run command: /usr/local/Cellar/cmake/3.25.2/bin/cmake --build . --target "preinstall"
+# Directory: /Users/ksenia55/labor6/_build
+# Output:
+[ 25%] Built target solver_lib
+[ 50%] Built target formatter_lib
+[ 75%] Built target formatter_ex_lib
+[ 87%] Linking CXX executable solver
+Undefined symbols for architecture x86_64:
+  "std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::operator<<<char, std::__1::char_traits<char>, std::__1::allocator<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)", referenced from:
+      formatter(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) in libformatter_ex_lib.a(formatter_ex.cpp.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [solver] Error 1
+make[1]: *** [CMakeFiles/solver.dir/all] Error 2
+make: *** [all] Error 2
+

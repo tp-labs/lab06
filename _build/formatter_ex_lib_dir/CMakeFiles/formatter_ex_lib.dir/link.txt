@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libformatter_ex_lib.a CMakeFiles/formatter_ex_lib.dir/formatter_ex.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libformatter_ex_lib.a
